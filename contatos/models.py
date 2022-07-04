@@ -1,8 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-# Na base de dados serão criadas as tabalas contatos_contato
-# e contatos_categoria
+# Será criado uma tabela para cada classe na DB
 
 
 class Categoria(models.Model):

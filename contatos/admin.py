@@ -11,9 +11,9 @@ class ContatoAdmin(admin.ModelAdmin):
     # Transforma em links:
     list_display_links = ('id', 'nome', 'sobrenome')
     # Adiciona um filtro
-    list_filter = ('nome', 'sobrenome')
+    # list_filter = ('nome', 'sobrenome')
     # Quantos itens serão exibidos por página:
-    list_per_page = 10
+    list_per_page = 5
     # Campo de pesquisa:
     search_fields = ('nome', 'sobrenome', 'id')
 
