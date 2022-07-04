@@ -8,13 +8,15 @@ from django.utils import timezone
 class Categoria(models.Model):
     nome = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.nome
+
 
 class Contato(models.Model):
-    """
-    nome = tipo de campo(tamanho do texto do campo)
-    Sobrenome e email são opcionais, se ficar em branco
-    ainda será aceito
-    """
+
+    def __str__(self):
+        return self.nome
+
     nome = models.CharField(max_length=255)
     sobrenome = models.CharField(max_length=255, blank=True)
     telefone = models.CharField(max_length=255)
