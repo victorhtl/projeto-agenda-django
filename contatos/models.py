@@ -25,3 +25,4 @@ class Contato(models.Model):
     # Aqui ele referencia a classe acima. Se o contato for apagado,
     # não será excluido as informações desta classe
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
+    mostrar = models.BooleanField(default=True)

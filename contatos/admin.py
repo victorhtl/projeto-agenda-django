@@ -7,7 +7,7 @@ class ContatoAdmin(admin.ModelAdmin):
     # Mostra os outros dados de models:
     list_display = (
         'id', 'nome', 'sobrenome', 'telefone',
-        'email', 'data_criacao', 'categoria')
+        'email', 'data_criacao', 'categoria', 'mostrar')
     # Transforma em links:
     list_display_links = ('id', 'nome', 'sobrenome')
     # Adiciona um filtro
@@ -16,6 +16,8 @@ class ContatoAdmin(admin.ModelAdmin):
     list_per_page = 5
     # Campo de pesquisa:
     search_fields = ('nome', 'sobrenome', 'id')
+    # Tornar campos editáveis
+    list_editable = ('telefone', 'mostrar')
 
 
 # Registra os apps na tela admin
