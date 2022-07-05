@@ -26,3 +26,4 @@ class Contato(models.Model):
     # não será excluido as informações desta classe
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
     mostrar = models.BooleanField(default=True)
+    foto = models.ImageField(blank=True, upload_to='fotos/%Y/%m/%d')
