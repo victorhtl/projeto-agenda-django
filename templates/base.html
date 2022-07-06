@@ -15,7 +15,6 @@
     <div class="row">
       <div class="col-lg-12">
         <br><br>
-        <h2>Buscar</h2>
         <form action="{% url 'busca' %}" method="get">
           <div class="form-group row">
             <div class="col-12">
@@ -23,6 +22,8 @@
               value="{{ request.GET.termo }}" name="termo" 
               placeholder="Buscar por nome, sobrenome, telefone..."
               id="search-input">
+              <br>
+              {% include 'parciais/_messages.html' %}
             </div>
           </div>
         </form>
