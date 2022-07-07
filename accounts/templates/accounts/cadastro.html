@@ -5,22 +5,28 @@
     {% include 'parciais/_messages.html' %}
     {% csrf_token %}
     <div class="form-group">
-        <input type="text" name="nome" class="form-control" id="exampleInputEmail1" placeholder="Nome">
+        <input type="text" name="nome" class="form-control" 
+        value="{{request.POST.nome}}" placeholder="Nome">
     </div>
     <div class="form-group">
-        <input type="text" name="sobrenome" class="form-control" id="exampleInputEmail1" placeholder="Sobrenome">
+        <input type="text" name="sobrenome" class="form-control" 
+        value="{{request.POST.sobrenome}}" placeholder="Sobrenome">
     </div>
     <div class="form-group">
-        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Sobrenome">
+        <input type="email" name="email" class="form-control" 
+        value="{{request.POST.email}}" placeholder="Email">
     </div>
     <div class="form-group">
-        <input type="text" name="usuario" class="form-control" id="exampleInputEmail1" placeholder="Usuario">
+        <input type="text" name="usuario" class="form-control" 
+        value="{{request.POST.usuario}}" placeholder="Usuario">
     </div>
     <div class="form-group">
-        <input type="password" nome="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+        <input type="password" class="form-control" name="senha" 
+        placeholder="Senha">
     </div>
     <div class="form-group">
-        <input type="password" nome="senha2" class="form-control" id="exampleInputPassword1" placeholder="Repetir Senha">
+        <input type="password" class="form-control" name="senha2" 
+        placeholder="Confirma senha">
     </div>
     <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
