@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block titulo %}
+Contatos
+{% endblock %}
 {% block conteudo%}
 <h1 class="mt-5">Minha agenda</h1>
 <br><br>
@@ -9,7 +12,6 @@
       value="{{ request.GET.termo }}" name="termo" 
       placeholder="Buscar por nome, sobrenome, telefone..."
       id="search-input">
-      <br>
       {% include 'parciais/_messages.html' %}
     </div>
   </div>
