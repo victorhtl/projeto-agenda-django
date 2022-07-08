@@ -1,4 +1,8 @@
 {% extends 'base.html'%}
 {% block conteudo %}
-dashboard
+<h1 class="mt-3 mb-3">Ola {{ user.first_name }} {{ user.last_name }}</h1>
+<form action="/accounts/logout/" method="post">
+    {% csrf_token %}
+    <button type="submit">Deslogar</button>
+</form>
 {% endblock %}
