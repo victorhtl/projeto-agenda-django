@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.validators import validate_email
+from django.contrib.auth.models import User
 
 
 def login(request):
@@ -33,9 +34,33 @@ def cadastro(request):
         messages.error(request, 'Email Inválido')
         return render(request, 'accounts/cadastro.html')
 
+    if len(senha) < 6:
+        messages.error(request, 'Senha precisa ter 6 caracter')
+        return render(request, 'accounts/cadastro.html')
 
-    messages.success(request, f'Usuário {usuario} cadastrado com sucesso')
-    return render(request, 'accounts/cadastro.html')
+    if senha != senha2:
+        messages.error(request, 'Senhas não conferem')
+        return render(request, 'accounts/cadastro.html')
+
+    if User.objects.filter(username=usuario).exists():
+        messages.error(request, 'Este nome de usuário já existe')
+        return render(request, 'accounts/cadastro.html')
+
+    if User.objects.filter(email=email).exists():
+        messages.error(request, 'Este email já está cadastrado')
+        return render(request, 'accounts/cadastro.html')
+
+    messages.success(request, f'Usuário {usuario} cadastrado com sucesso.')
+
+    user = User.objects.create_user(
+        username=usuario,
+        email=email,
+        password=senha,
+        first_name=nome,
+        last_name=sobrenome
+    )
+    user.save()
+    return redirect('login')
 
 
 def dashboard(request):
